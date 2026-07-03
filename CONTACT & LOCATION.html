@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5" />
+    <title>Harbour Grand · Contact & Location</title>
+    <!-- SEO Meta -->
+    <meta name="description" content="Contact Harbour Grand Hotel. Find our location, get directions, and reach out to our team for inquiries and reservations." />
+    <meta name="keywords" content="hotel contact, location, directions, harbour grand, phone number, email, map" />
+    <meta name="author" content="Harbour Grand Hotel" />
+    <!-- Google Font & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #faf8f5;
+            color: #1e1e2a;
+            line-height: 1.6;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+
+        /* ===== COLOR THEME ===== */
+        :root {
+            --gold: #c8a165;
+            --gold-light: #e8d5b5;
+            --navy: #0f1a2b;
+            --navy-light: #1e2f45;
+            --cream: #f8f2e9;
+            --white: #ffffff;
+            --shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+            --radius: 20px;
+            --success: #2e7d32;
+            --error: #b22222;
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        .section-title {
+            font-size: 2.8rem;
+            margin-bottom: 6px;
+            color: var(--navy);
+            letter-spacing: -0.3px;
+        }
+        .section-sub {
+            color: #5a6a7a;
+            font-size: 1.1rem;
+            margin-bottom: 32px;
+            font-weight: 300;
+        }
+        .gold-accent {
+            color: var(--gold);
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-block;
+            background: var(--gold);
+            color: white;
+            padding: 16px 44px;
+            border-radius: 60px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: 0.25s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 8px 20px rgba(200, 161, 101, 0.25);
+            width: 100%;
+        }
+        .btn:hover {
+            background: #b58b4a;
+            transform: translateY(-3px);
+            box-shadow: 0 14px 30px rgba(200, 161, 101, 0.35);
+        }
+
+        /* ===== HEADER / NAV ===== */
+        .navbar {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+            padding: 18px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(200, 161, 101, 0.15);
+        }
+        .nav-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--navy);
+            letter-spacing: -0.5px;
+        }
+        .logo span {
+            color: var(--gold);
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            align-items: center;
+        }
+        .nav-links a {
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--gold);
+            border-bottom-color: var(--gold);
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--navy);
+        }
+
+        /* ===== HERO / BANNER ===== */
+        .hero {
+            background: linear-gradient(145deg, #0b1624 0%, #1a2e44 100%);
+            color: white;
+            padding: 60px 0 70px;
+            border-radius: 0 0 60px 60px;
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(200, 161, 101, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 740px;
+            margin: 0 auto;
+        }
+        .hero-content h1 {
+            font-size: 3.6rem;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+        .hero-content h1 i {
+            color: var(--gold);
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            opacity: 0.85;
+            font-weight: 300;
+        }
+
+        /* ===== CONTACT WRAPPER ===== */
+        .contact-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin: 20px 0 50px;
+        }
+
+        /* ===== CONTACT FORM ===== */
+        .contact-form-container {
+            flex: 1.2;
+            min-width: 320px;
+            background: white;
+            border-radius: var(--radius);
+            padding: 40px 36px;
+            box-shadow: var(--shadow);
+            border: 1px solid #f0ebe3;
+        }
+        .contact-form-container .form-header {
+            margin-bottom: 28px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--cream);
+        }
+        .contact-form-container .form-header h2 {
+            font-size: 1.8rem;
+            font-family: 'Playfair Display', serif;
+        }
+        .contact-form-container .form-header p {
+            color: #5a6a7a;
+            font-size: 0.95rem;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+            color: var(--navy);
+        }
+        .form-group label .required {
+            color: var(--error);
+            margin-left: 2px;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #e0d9d0;
+            border-radius: 40px;
+            font-size: 1rem;
+            background: #fcfbf9;
+            transition: 0.3s;
+            font-family: 'Inter', sans-serif;
+            color: #1e1e2a;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--gold);
+            outline: none;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(200, 161, 101, 0.1);
+        }
+        .form-group input.error,
+        .form-group textarea.error {
+            border-color: var(--error);
+            background: #fff8f8;
+        }
+        .form-group input.success,
+        .form-group textarea.success {
+            border-color: var(--success);
+            background: #f8fff8;
+        }
+        .form-group .error-message {
+            color: var(--error);
+            font-size: 0.8rem;
+            margin-top: 4px;
+            display: none;
+            font-weight: 500;
+        }
+        .form-group .error-message.visible {
+            display: block;
+        }
+        .form-group textarea {
+            border-radius: 24px;
+            resize: vertical;
+            min-height: 120px;
+        }
+        .form-row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .form-row .form-group {
+            flex: 1 1 160px;
+        }
+
+        /* ===== SUCCESS MESSAGE ===== */
+        .success-message {
+            display: none;
+            background: #e8f5e9;
+            border: 2px solid var(--success);
+            border-radius: var(--radius);
+            padding: 24px 28px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .success-message.visible {
+            display: block;
+            animation: fadeInUp 0.5s ease;
+        }
+        .success-message i {
+            font-size: 3rem;
+            color: var(--success);
+            margin-bottom: 12px;
+        }
+        .success-message h3 {
+            color: var(--success);
+            font-family: 'Inter', sans-serif;
+        }
+        .success-message p {
+            color: #1e3a2a;
+            margin-top: 4px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== CONTACT INFO SIDEBAR ===== */
+        .contact-info-sidebar {
+            flex: 0.8;
+            min-width: 280px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .info-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 28px 24px;
+            box-shadow: var(--shadow);
+            border: 1px solid #f0ebe3;
+        }
+        .info-card h3 {
+            font-size: 1.2rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--cream);
+        }
+        .info-card .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 10px 0;
+            border-bottom: 1px solid #f5f0eb;
+        }
+        .info-card .info-item:last-child {
+            border-bottom: none;
+        }
+        .info-card .info-item i {
+            color: var(--gold);
+            font-size: 1.2rem;
+            width: 24px;
+            margin-top: 2px;
+        }
+        .info-card .info-item .info-text {
+            flex: 1;
+        }
+        .info-card .info-item .info-text .label {
+            font-size: 0.75rem;
+            color: #5a6a7a;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+        .info-card .info-item .info-text .value {
+            font-weight: 500;
+            color: var(--navy);
+        }
+        .info-card .info-item .info-text .value a {
+            color: var(--navy);
+            transition: 0.2s;
+        }
+        .info-card .info-item .info-text .value a:hover {
+            color: var(--gold);
+        }
+
+        /* ===== MAP ===== */
+        .map-container {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid #f0ebe3;
+            height: 320px;
+            background: #d9d2c8;
+            position: relative;
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .map-container .map-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            background: linear-gradient(145deg, #1a2e44, #0b1624);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .map-container .map-placeholder i {
+            font-size: 4rem;
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+        .map-container .map-placeholder p {
+            opacity: 0.8;
+        }
+
+        /* ===== SOCIAL & HOURS ===== */
+        .social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--cream);
+            color: var(--navy);
+            font-size: 1.3rem;
+            transition: 0.3s;
+            border: 1px solid #e0d9d0;
+        }
+        .social-links a:hover {
+            background: var(--gold);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(200, 161, 101, 0.3);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--navy);
+            color: #d0d8e0;
+            padding: 48px 0 28px;
+            margin-top: 40px;
+            border-radius: 60px 60px 0 0;
+        }
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        .footer h4 {
+            color: white;
+            margin-bottom: 12px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+        }
+        .footer a {
+            color: #b0c0d0;
+            transition: 0.2s;
+        }
+        .footer a:hover {
+            color: var(--gold);
+        }
+        .footer-bottom {
+            border-top: 1px solid #2f4055;
+            padding-top: 24px;
+            margin-top: 28px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #8a9aa8;
+        }
+        .social-icons i {
+            font-size: 1.5rem;
+            margin-right: 14px;
+            color: #b0c0d0;
+            transition: 0.2s;
+        }
+        .social-icons i:hover {
+            color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 820px) {
+            .menu-toggle {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                gap: 18px;
+                padding: 24px 0 12px;
+                border-top: 1px solid #eee;
+                margin-top: 16px;
+                align-items: flex-start;
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .hero-content h1 {
+                font-size: 2.6rem;
+            }
+            .section-title {
+                font-size: 2.2rem;
+            }
+            .contact-wrapper {
+                flex-direction: column;
+            }
+            .contact-info-sidebar {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            .contact-info-sidebar .info-card {
+                flex: 1;
+                min-width: 240px;
+            }
+        }
+
+        @media (max-width: 540px) {
+            .container {
+                padding: 0 16px;
+            }
+            .hero {
+                padding: 40px 0 44px;
+                border-radius: 0 0 32px 32px;
+            }
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+            }
+            .contact-form-container {
+                padding: 24px 18px;
+            }
+            .form-row {
+                flex-direction: column;
+            }
+            .contact-info-sidebar {
+                flex-direction: column;
+            }
+            .footer-grid {
+                flex-direction: column;
+                gap: 24px;
+            }
+            .map-container {
+                height: 240px;
+            }
+            .social-links a {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+        }
+
+        /* ===== LOADING SPINNER ===== */
+        .spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top: 3px solid white;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto;
+        }
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        .btn .btn-text {
+            display: inline;
+        }
+        .btn.loading .btn-text {
+            display: none;
+        }
+        .btn.loading .spinner {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== NAVIGATION ===== -->
+    <header class="navbar">
+        <div class="container nav-flex">
+            <div class="logo">Harbour<span>Grand</span></div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-links" id="navLinks">
+                <a href="#" class="active">Contact</a>
+                <a href="#">Rooms</a>
+                <a href="#">Prices</a>
+                <a href="#">Gallery</a>
+                <a href="#">Facilities</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===== HERO / BANNER ===== -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h1><i class="fas fa-map-pin"></i> Contact & <span class="gold-accent">Location</span></h1>
+                <p>We're here to help. Reach out to us for reservations, inquiries, or just to say hello.</p>
+            </div>
+        </section>
+
+        <!-- ===== CONTACT SECTION ===== -->
+        <section class="container">
+            <h2 class="section-title"><span class="gold-accent">✦</span> Get in Touch</h2>
+            <p class="section-sub">We'd love to hear from you. Our team is available 24/7 to assist with your needs.</p>
+
+            <div class="contact-wrapper">
+                <!-- Contact Form -->
+                <div class="contact-form-container">
+                    <div class="form-header">
+                        <h2><i class="fas fa-envelope gold-accent"></i> Send a Message</h2>
+                        <p>Fill in the form below and we'll get back to you within 2 hours.</p>
+                    </div>
+
+                    <form id="contactForm" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Full Name <span class="required">*</span></label>
+                                <input type="text" id="fullName" placeholder="John Doe" required />
+                                <div class="error-message" id="nameError">Please enter your full name.</div>
+                            </div>
+                            <div class="form-group">
+                                <label>Email Address <span class="required">*</span></label>
+                                <input type="email" id="email" placeholder="john@example.com" required />
+                                <div class="error-message" id="emailError">Please enter a valid email address.</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Subject <span class="required">*</span></label>
+                            <select id="subject" required>
+                                <option value="">Select a subject</option>
+                                <option value="booking">Booking Inquiry</option>
+                                <option value="event">Event & Celebration</option>
+                                <option value="feedback">Feedback & Suggestions</option>
+                                <option value="careers">Careers at Harbour Grand</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <div class="error-message" id="subjectError">Please select a subject.</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Message <span class="required">*</span></label>
+                            <textarea id="message" placeholder="Tell us how we can help you..." required></textarea>
+                            <div class="error-message" id="messageError">Please enter your message.</div>
+                        </div>
+
+                        <button type="submit" class="btn" id="submitBtn">
+                            <span class="btn-text"><i class="fas fa-paper-plane"></i> Send Message</span>
+                            <span class="spinner"></span>
+                        </button>
+
+                        <div class="success-message" id="successMessage">
+                            <i class="fas fa-check-circle"></i>
+                            <h3>Message Sent!</h3>
+                            <p>Thank you for reaching out. We'll respond to your inquiry within 2 hours.</p>
+                            <p style="margin-top:8px; font-size:0.9rem; color:#2e7d32;">
+                                <i class="fas fa-print"></i> Reference: <strong id="contactRef">HG-2026-001</strong>
+                            </p>
+                            <button class="btn" style="width:auto; margin-top:16px; padding:12px 32px;" onclick="location.reload()">
+                                <i class="fas fa-plus"></i> New Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Contact Info Sidebar -->
+                <div class="contact-info-sidebar">
+                    <!-- Location Card -->
+                    <div class="info-card">
+                        <h3><i class="fas fa-location-dot gold-accent"></i> Our Location</h3>
+                        <div class="info-item">
+                            <i class="fas fa-map-pin"></i>
+                            <div class="info-text">
+                                <div class="label">Address</div>
+                                <div class="value">12 Harbour Promenade,<br />Downtown, HD 1001</div>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-route"></i>
+                            <div class="info-text">
+                                <div class="label">Directions</div>
+                                <div class="value"><a href="#" style="color:var(--gold); font-weight:500;">Get directions on Google Maps →</a></div>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-parking"></i>
+                            <div class="info-text">
+                                <div class="label">Parking</div>
+                                <div class="value">Complimentary valet parking for all guests</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Card -->
+                    <div class="info-card">
+                        <h3><i class="fas fa-phone gold-accent"></i> Contact Details</h3>
+                        <div class="info-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div class="info-text">
+                                <div class="label">Phone</div>
+                                <div class="value"><a href="tel:+15557428765">+1 (555) 742-8765</a></div>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-mobile-alt"></i>
+                            <div class="info-text">
+                                <div class="label">Mobile</div>
+                                <div class="value"><a href="tel:+15557428766">+1 (555) 742-8766</a></div>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div class="info-text">
+                                <div class="label">Email</div>
+                                <div class="value"><a href="mailto:stay@harbourgrand.com">stay@harbourgrand.com</a></div>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-globe"></i>
+                            <div class="info-text">
+                                <div class="label">Website</div>
+                                <div class="value"><a href="#">www.harbourgrand.com</a></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hours & Social Card -->
+                    <div class="info-card">
+                        <h3><i class="fas fa-clock gold-accent"></i> Hours & Connect</h3>
+                        <div class="info-item">
+                            <i class="fas fa-clock"></i>
+                            <div class="info-text">
+                                <div class="label">Front Desk</div>
+                                <div class="value">24/7 — Always open</div>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-concierge-bell"></i>
+                            <div class="info-text">
+                                <div class="label">Concierge</div>
+                                <div class="value">6:00 AM – 11:00 PM</div>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-utensils"></i>
+                            <div class="info-text">
+                                <div class="label">Restaurant</div>
+                                <div class="value">7:00 AM – 11:00 PM</div>
+                            </div>
+                        </div>
+                        <div style="margin-top:12px;">
+                            <div class="label" style="font-size:0.75rem; color:#5a6a7a; text-transform:uppercase; letter-spacing:0.5px; font-weight:600; margin-bottom:6px;">Follow Us</div>
+                            <div class="social-links">
+                                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                                <a href="#" aria-label="TripAdvisor"><i class="fab fa-tripadvisor"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Section -->
+            <div style="margin: 20px 0 40px;">
+                <h3 style="font-family:'Playfair Display', serif; margin-bottom:16px;">
+                    <i class="fas fa-map gold-accent"></i> Find Us
+                </h3>
+                <div class="map-container">
+                    <!-- Interactive Google Maps Embed -->
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.2219901290355!2d-74.00369368400567!3d40.71312937933038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a316bb7e6d9%3A0x98b4e6f9f2d5b2c3!2s12%20Harbour%20Promenade%2C%20New%20York%2C%20NY%2010001!5e0!3m2!1sen!2sus!4v1700000000000" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Harbour Grand Hotel Location Map">
+                    </iframe>
+                </div>
+                <p style="margin-top:12px; color:#5a6a7a; font-size:0.9rem; text-align:center;">
+                    <i class="fas fa-location-dot gold-accent"></i> 12 Harbour Promenade, Downtown, HD 1001
+                    <span style="margin:0 8px;">|</span>
+                    <i class="fas fa-taxi gold-accent"></i> 15 mins from downtown airport
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Harbour Grand</h4>
+                    <p style="max-width: 240px; opacity: 0.8;">Where the sea meets sophistication. Est. 1982</p>
+                </div>
+                <div>
+                    <h4>Quick links</h4>
+                    <a href="#">Contact</a> · <a href="#">Rooms</a> · <a href="#">Prices</a> · <a href="#">Gallery</a>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <div class="social-icons">
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-facebook"></i>
+                        <i class="fab fa-x-twitter"></i>
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">© 2026 Harbour Grand Hotel. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        (function() {
+            // ---- Mobile menu toggle ----
+            const toggleBtn = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+            if (toggleBtn && navLinks) {
+                toggleBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    navLinks.classList.toggle('open');
+                });
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => navLinks.classList.remove('open'));
+                });
+            }
+
+            // ---- DOM refs ----
+            const form = document.getElementById('contactForm');
+            const fullName = document.getElementById('fullName');
+            const email = document.getElementById('email');
+            const subject = document.getElementById('subject');
+            const message = document.getElementById('message');
+            const submitBtn = document.getElementById('submitBtn');
+            const successMsg = document.getElementById('successMessage');
+
+            // Error messages
+            const nameError = document.getElementById('nameError');
+            const emailError = document.getElementById('emailError');
+            const subjectError = document.getElementById('subjectError');
+            const messageError = document.getElementById('messageError');
+
+            // ---- Real-time validation styling ----
+            function validateField(input, errorEl, condition, errorMsg) {
+                if (!input.value || !condition) {
+                    input.classList.add('error');
+                    input.classList.remove('success');
+                    errorEl.textContent = errorMsg;
+                    errorEl.classList.add('visible');
+                    return false;
+                } else {
+                    input.classList.remove('error');
+                    input.classList.add('success');
+                    errorEl.classList.remove('visible');
+                    return true;
+                }
+            }
+
+            // ---- Form validation ----
+            function validateForm() {
+                let isValid = true;
+
+                // Name
+                if (!validateField(fullName, nameError, fullName.value.trim().length >= 2, 'Please enter your full name.')) {
+                    isValid = false;
+                }
+
+                // Email
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!validateField(email, emailError, emailPattern.test(email.value.trim()), 'Please enter a valid email address.')) {
+                    isValid = false;
+                }
+
+                // Subject
+                if (!validateField(subject, subjectError, subject.value !== '', 'Please select a subject.')) {
+                    isValid = false;
+                }
+
+                // Message
+                if (!validateField(message, messageError, message.value.trim().length >= 10, 'Please enter a message (minimum 10 characters).')) {
+                    isValid = false;
+                }
+
+                return isValid;
+            }
+
+            // ---- Live validation on change ----
+            [fullName, email, subject, message].forEach(field => {
+                field.addEventListener('change', function() {
+                    validateForm();
+                });
+                field.addEventListener('input', function() {
+                    if (this.classList.contains('error') || this.classList.contains('success')) {
+                        validateForm();
+                    }
+                });
+            });
+
+            // ---- Form submit ----
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                if (!validateForm()) {
+                    const firstError = document.querySelector('.form-group .error.visible, .form-group .error-message.visible');
+                    if (firstError) {
+                        firstError.closest('.form-group')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                    return;
+                }
+
+                // Show loading state
+                submitBtn.classList.add('loading');
+                submitBtn.disabled = true;
+
+                // Simulate API call
+                setTimeout(function() {
+                    submitBtn.classList.remove('loading');
+                    submitBtn.disabled = false;
+
+                    // Generate reference
+                    const ref = 'HG-' + new Date().getFullYear() + '-' + String(Math.floor(Math.random() * 9000) + 1000);
+                    document.getElementById('contactRef').textContent = ref;
+
+                    // Show success
+                    successMsg.classList.add('visible');
+                    form.querySelector('.form-header, .form-row, .form-group, .btn:not(.success-message .btn)')
+                        .forEach(el => {
+                            if (el.closest('.success-message')) return;
+                            el.style.display = 'none';
+                        });
+                    submitBtn.style.display = 'none';
+                    successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                    console.log('📧 Contact form submitted:', {
+                        name: fullName.value,
+                        email: email.value,
+                        subject: subject.value,
+                        message: message.value,
+                        ref: ref
+                    });
+
+                }, 1500);
+            });
+
+            // ---- Console info ----
+            console.log('📍 Harbour Grand Contact & Location page loaded. We\'re here to help!');
+
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5" />
+    <title>Harbour Grand · Gallery</title>
+    <!-- SEO Meta -->
+    <meta name="description" content="Explore the beautiful spaces of Harbour Grand Hotel. Luxury rooms, infinity pool, fine dining, and more in our gallery." />
+    <meta name="keywords" content="hotel gallery, luxury hotel photos, harbour grand, infinity pool, fine dining, hotel interiors" />
+    <meta name="author" content="Harbour Grand Hotel" />
+    <!-- Google Font & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #faf8f5;
+            color: #1e1e2a;
+            line-height: 1.6;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+
+        /* ===== COLOR THEME ===== */
+        :root {
+            --gold: #c8a165;
+            --gold-light: #e8d5b5;
+            --navy: #0f1a2b;
+            --cream: #f8f2e9;
+            --white: #ffffff;
+            --shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+            --radius: 20px;
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        .section-title {
+            font-size: 2.8rem;
+            margin-bottom: 6px;
+            color: var(--navy);
+            letter-spacing: -0.3px;
+        }
+        .section-sub {
+            color: #5a6a7a;
+            font-size: 1.1rem;
+            margin-bottom: 32px;
+            font-weight: 300;
+        }
+        .gold-accent {
+            color: var(--gold);
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-block;
+            background: var(--gold);
+            color: white;
+            padding: 14px 36px;
+            border-radius: 60px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: 0.25s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+            box-shadow: 0 8px 20px rgba(200, 161, 101, 0.25);
+        }
+        .btn:hover {
+            background: #b58b4a;
+            transform: translateY(-3px);
+            box-shadow: 0 14px 30px rgba(200, 161, 101, 0.35);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            box-shadow: none;
+        }
+        .btn-outline:hover {
+            background: var(--gold);
+            color: white;
+        }
+        .btn-sm {
+            padding: 8px 20px;
+            font-size: 0.8rem;
+        }
+
+        /* ===== HEADER / NAV ===== */
+        .navbar {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+            padding: 18px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(200, 161, 101, 0.15);
+        }
+        .nav-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--navy);
+            letter-spacing: -0.5px;
+        }
+        .logo span {
+            color: var(--gold);
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            align-items: center;
+        }
+        .nav-links a {
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--gold);
+            border-bottom-color: var(--gold);
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--navy);
+        }
+
+        /* ===== HERO / BANNER ===== */
+        .hero {
+            background: linear-gradient(145deg, #0b1624 0%, #1a2e44 100%);
+            color: white;
+            padding: 60px 0 70px;
+            border-radius: 0 0 60px 60px;
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(200, 161, 101, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 740px;
+            margin: 0 auto;
+        }
+        .hero-content h1 {
+            font-size: 3.6rem;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+        .hero-content h1 i {
+            color: var(--gold);
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            opacity: 0.85;
+            font-weight: 300;
+        }
+
+        /* ===== CATEGORY FILTER ===== */
+        .filter-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 32px;
+            justify-content: center;
+        }
+        .filter-tabs button {
+            padding: 10px 28px;
+            border-radius: 60px;
+            border: 2px solid #e0d9d0;
+            background: transparent;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.25s;
+            font-family: 'Inter', sans-serif;
+            color: #3d4d5d;
+        }
+        .filter-tabs button:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+        .filter-tabs button.active {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: white;
+        }
+
+        /* ===== GALLERY GRID (Masonry Style) ===== */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+            margin: 20px 0 50px;
+        }
+        .gallery-item {
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: white;
+            box-shadow: var(--shadow);
+            transition: 0.3s ease;
+            border: 1px solid #f0ebe3;
+            cursor: pointer;
+            position: relative;
+        }
+        .gallery-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+            border-color: var(--gold-light);
+        }
+        .gallery-item .image-wrapper {
+            position: relative;
+            overflow: hidden;
+            background: #d9d2c8;
+        }
+        .gallery-item .image-wrapper img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .gallery-item:hover .image-wrapper img {
+            transform: scale(1.04);
+        }
+        .gallery-item .image-wrapper .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 26, 43, 0.3);
+            opacity: 0;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .gallery-item:hover .image-wrapper .overlay {
+            opacity: 1;
+        }
+        .gallery-item .image-wrapper .overlay i {
+            color: white;
+            font-size: 2.5rem;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 16px;
+            border-radius: 50%;
+            backdrop-filter: blur(4px);
+        }
+        .gallery-item .caption {
+            padding: 16px 20px;
+            background: white;
+        }
+        .gallery-item .caption h3 {
+            font-size: 1.1rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+        .gallery-item .caption p {
+            font-size: 0.85rem;
+            color: #5a6a7a;
+        }
+        .gallery-item .caption .category-badge {
+            display: inline-block;
+            margin-top: 6px;
+            font-size: 0.7rem;
+            background: var(--cream);
+            padding: 2px 14px;
+            border-radius: 40px;
+            color: var(--navy);
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        /* ===== LIGHTBOX ===== */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            backdrop-filter: blur(8px);
+        }
+        .lightbox.active {
+            display: flex;
+        }
+        .lightbox .lightbox-content {
+            max-width: 900px;
+            max-height: 85vh;
+            position: relative;
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+        .lightbox .lightbox-content img {
+            width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+            background: #1a1a2e;
+        }
+        .lightbox .lightbox-caption {
+            padding: 20px 28px;
+            background: white;
+        }
+        .lightbox .lightbox-caption h3 {
+            font-size: 1.4rem;
+            font-family: 'Inter', sans-serif;
+        }
+        .lightbox .lightbox-caption p {
+            color: #5a6a7a;
+        }
+        .lightbox .close-btn {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox .close-btn:hover {
+            background: var(--gold);
+            transform: rotate(90deg);
+        }
+        .lightbox .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 16px 20px;
+            transition: 0.2s;
+            backdrop-filter: blur(4px);
+            border-radius: 8px;
+        }
+        .lightbox .nav-btn:hover {
+            background: rgba(200, 161, 101, 0.4);
+        }
+        .lightbox .nav-btn.prev {
+            left: 12px;
+        }
+        .lightbox .nav-btn.next {
+            right: 12px;
+        }
+        @media (max-width: 640px) {
+            .lightbox {
+                padding: 12px;
+            }
+            .lightbox .nav-btn {
+                padding: 10px 14px;
+                font-size: 1.4rem;
+            }
+            .lightbox .close-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.4rem;
+                top: 8px;
+                right: 10px;
+            }
+            .lightbox .lightbox-caption {
+                padding: 14px 18px;
+            }
+        }
+
+        /* ===== COUNTER ===== */
+        .gallery-counter {
+            text-align: center;
+            color: #5a6a7a;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+        .gallery-counter span {
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--navy);
+            color: #d0d8e0;
+            padding: 48px 0 28px;
+            margin-top: 40px;
+            border-radius: 60px 60px 0 0;
+        }
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        .footer h4 {
+            color: white;
+            margin-bottom: 12px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+        }
+        .footer a {
+            color: #b0c0d0;
+            transition: 0.2s;
+        }
+        .footer a:hover {
+            color: var(--gold);
+        }
+        .footer-bottom {
+            border-top: 1px solid #2f4055;
+            padding-top: 24px;
+            margin-top: 28px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #8a9aa8;
+        }
+        .social-icons i {
+            font-size: 1.5rem;
+            margin-right: 14px;
+            color: #b0c0d0;
+            transition: 0.2s;
+        }
+        .social-icons i:hover {
+            color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 820px) {
+            .menu-toggle {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                gap: 18px;
+                padding: 24px 0 12px;
+                border-top: 1px solid #eee;
+                margin-top: 16px;
+                align-items: flex-start;
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .hero-content h1 {
+                font-size: 2.6rem;
+            }
+            .section-title {
+                font-size: 2.2rem;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+                gap: 18px;
+            }
+            .gallery-item .image-wrapper img {
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 540px) {
+            .container {
+                padding: 0 16px;
+            }
+            .hero {
+                padding: 40px 0 44px;
+                border-radius: 0 0 32px 32px;
+            }
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+            .gallery-item .image-wrapper img {
+                height: 150px;
+            }
+            .gallery-item .caption {
+                padding: 10px 14px;
+            }
+            .gallery-item .caption h3 {
+                font-size: 0.9rem;
+            }
+            .gallery-item .caption p {
+                font-size: 0.75rem;
+            }
+            .filter-tabs button {
+                padding: 6px 16px;
+                font-size: 0.8rem;
+            }
+            .footer-grid {
+                flex-direction: column;
+                gap: 24px;
+            }
+        }
+
+        /* ===== ANIMATION ===== */
+        .fade-in {
+            animation: fadeInUp 0.5s ease forwards;
+            opacity: 0;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== NAVIGATION ===== -->
+    <header class="navbar">
+        <div class="container nav-flex">
+            <div class="logo">Harbour<span>Grand</span></div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-links" id="navLinks">
+                <a href="#" class="active">Gallery</a>
+                <a href="#">Rooms</a>
+                <a href="#">Prices</a>
+                <a href="#">Facilities</a>
+                <a href="#">Booking</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===== HERO / BANNER ===== -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h1><i class="fas fa-images"></i> Our <span class="gold-accent">Gallery</span></h1>
+                <p>Step into the world of Harbour Grand — where every space tells a story of elegance and comfort.</p>
+            </div>
+        </section>
+
+        <!-- ===== GALLERY ===== -->
+        <section class="container">
+            <h2 class="section-title"><span class="gold-accent">✦</span> Moments at Harbour Grand</h2>
+            <p class="section-sub">Explore our beautifully curated spaces, from luxurious rooms to stunning common areas.</p>
+
+            <!-- Filter Tabs -->
+            <div class="filter-tabs" id="filterTabs">
+                <button class="active" data-category="all">All</button>
+                <button data-category="rooms">Rooms</button>
+                <button data-category="dining">Dining</button>
+                <button data-category="pool">Pool & Spa</button>
+                <button data-category="lobby">Lobby & More</button>
+            </div>
+
+            <!-- Counter -->
+            <div class="gallery-counter" id="galleryCounter">
+                Showing <span id="visibleCount">0</span> of <span id="totalCount">0</span> images
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Images injected via JS -->
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== LIGHTBOX ===== -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="close-btn" id="closeLightbox">&times;</button>
+            <button class="nav-btn prev" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+            <button class="nav-btn next" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+            <img id="lightboxImg" src="" alt="Gallery image" />
+            <div class="lightbox-caption">
+                <h3 id="lightboxTitle">Title</h3>
+                <p id="lightboxDesc">Description</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Harbour Grand</h4>
+                    <p style="max-width: 240px; opacity: 0.8;">Where the sea meets sophistication. Est. 1982</p>
+                </div>
+                <div>
+                    <h4>Quick links</h4>
+                    <a href="#">Gallery</a> · <a href="#">Rooms</a> · <a href="#">Prices</a> · <a href="#">Facilities</a>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <div class="social-icons">
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-facebook"></i>
+                        <i class="fab fa-x-twitter"></i>
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">© 2026 Harbour Grand Hotel. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        (function() {
+            // ---- Mobile menu toggle ----
+            const toggleBtn = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+            if (toggleBtn && navLinks) {
+                toggleBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    navLinks.classList.toggle('open');
+                });
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => navLinks.classList.remove('open'));
+                });
+            }
+
+            // ---- Gallery Data ----
+            const galleryItems = [{
+                id: 1,
+                title: 'Harbour View Suite',
+                description: 'Elegant suite with panoramic sea views, king bed, and marble bathroom.',
+                category: 'rooms',
+                image: 'https://images.unsplash.com/photo-1568495248636-6432b97bd949?w=600&h=400&fit=crop&auto=format',
+                alt: 'Luxury hotel room with king bed and sea view'
+            }, {
+                id: 2,
+                title: 'Infinity Pool',
+                description: 'Heated infinity pool overlooking the harbour with poolside bar service.',
+                category: 'pool',
+                image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&h=400&fit=crop&auto=format',
+                alt: 'Rooftop infinity pool overlooking the sea'
+            }, {
+                id: 3,
+                title: 'The Lighthouse Restaurant',
+                description: 'Michelin-starred dining with fresh seafood and harbour views.',
+                category: 'dining',
+                image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=600&h=400&fit=crop&auto=format',
+                alt: 'Elegant hotel restaurant with chandeliers'
+            }, {
+                id: 4,
+                title: 'Grand Lobby',
+                description: 'Stunning lobby with a grand staircase, fireplace, and lounge seating.',
+                category: 'lobby',
+                image: 'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=600&h=400&fit=crop&auto=format',
+                alt: 'Hotel lobby with fireplace and grand staircase'
+            }, {
+                id: 5,
+                title: 'Luxury Spa',
+                description: 'Rejuvenate with signature treatments, aromatherapy, and expert therapists.',
+                category: 'pool',
+                image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&h=400&fit=crop&auto=format',
+                alt: 'Luxury spa with candles and massage beds'
+            }, {
+                id: 6,
+                title: 'City Skyline Room',
+                description: 'Modern room with floor-to-ceiling windows overlooking the city lights.',
+                category: 'rooms',
+                image: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=600&h=400&fit=crop&auto=format',
+                alt: 'Modern hotel room with city view'
+            }, {
+                id: 7,
+                title: 'Sky Bar & Lounge',
+                description: 'Craft cocktails and tapas with breathtaking sunset views over the harbour.',
+                category: 'dining',
+                image: 'https://images.unsplash.com/photo-1566411520896-01e7ca4726af?w=600&h=400&fit=crop&auto=format',
+                alt: 'Rooftop bar with sunset view'
+            }, {
+                id: 8,
+                title: 'Presidential Suite',
+                description: 'Private terrace, jacuzzi, butler service, and champagne welcome.',
+                category: 'rooms',
+                image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600&h=400&fit=crop&auto=format',
+                alt: 'Luxury presidential suite with living area'
+            }, {
+                id: 9,
+                title: 'Wellness Center',
+                description: 'State-of-the-art fitness equipment, yoga classes, and personal trainers.',
+                category: 'pool',
+                image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&h=400&fit=crop&auto=format',
+                alt: 'Modern fitness center with equipment'
+            }, {
+                id: 10,
+                title: 'Hotel Exterior',
+                description: 'Stunning waterfront architecture with Mediterranean influences.',
+                category: 'lobby',
+                image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=400&fit=crop&auto=format',
+                alt: 'Luxury hotel exterior with sea view'
+            }, {
+                id: 11,
+                title: 'Private Dining',
+                description: 'Intimate private dining room for special occasions and celebrations.',
+                category: 'dining',
+                image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop&auto=format',
+                alt: 'Private dining room with elegant table setting'
+            }, {
+                id: 12,
+                title: 'Sunset Terrace',
+                description: 'Outdoor terrace with comfortable seating and panoramic ocean views.',
+                category: 'lobby',
+                image: 'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=600&h=400&fit=crop&auto=format',
+                alt: 'Outdoor terrace with ocean view and seating'
+            }];
+
+            // ---- State ----
+            let currentCategory = 'all';
+            let currentIndex = 0;
+            let filteredItems = [...galleryItems];
+
+            // ---- DOM refs ----
+            const grid = document.getElementById('galleryGrid');
+            const counter = document.getElementById('galleryCounter');
+            const visibleCount = document.getElementById('visibleCount');
+            const totalCount = document.getElementById('totalCount');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            const lightboxTitle = document.getElementById('lightboxTitle');
+            const lightboxDesc = document.getElementById('lightboxDesc');
+            const closeBtn = document.getElementById('closeLightbox');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            // ---- Render Gallery ----
+            function renderGallery(category = 'all') {
+                filteredItems = category === 'all' ?
+                    [...galleryItems] :
+                    galleryItems.filter(item => item.category === category);
+
+                if (filteredItems.length === 0) {
+                    grid.innerHTML =
+                        `<div style="grid-column:1/-1; text-align:center; padding:60px 20px; color:#5a6a7a;">
+                            <i class="fas fa-images" style="font-size:3rem; color:var(--gold); margin-bottom:16px; display:block;"></i>
+                            <p style="font-size:1.1rem;">No images found in this category.</p>
+                        </div>`;
+                    visibleCount.textContent = '0';
+                    totalCount.textContent = galleryItems.length;
+                    return;
+                }
+
+                let html = '';
+                filteredItems.forEach((item, index) => {
+                    html += `
+                        <div class="gallery-item fade-in" data-index="${index}" data-category="${item.category}">
+                            <div class="image-wrapper">
+                                <img src="${item.image}" alt="${item.alt}" loading="lazy" />
+                                <div class="overlay">
+                                    <i class="fas fa-expand"></i>
+                                </div>
+                            </div>
+                            <div class="caption">
+                                <h3>${item.title}</h3>
+                                <p>${item.description}</p>
+                                <span class="category-badge">${item.category.charAt(0).toUpperCase() + item.category.slice(1)}</span>
+                            </div>
+                        </div>
+                    `;
+                });
+                grid.innerHTML = html;
+
+                // Update counter
+                visibleCount.textContent = filteredItems.length;
+                totalCount.textContent = galleryItems.length;
+
+                // Attach click events to gallery items
+                document.querySelectorAll('.gallery-item').forEach((el, idx) => {
+                    el.addEventListener('click', function() {
+                        const index = parseInt(this.getAttribute('data-index'));
+                        openLightbox(index);
+                    });
+                });
+            }
+
+            // ---- Lightbox ----
+            function openLightbox(index) {
+                currentIndex = index;
+                const item = filteredItems[index];
+                if (!item) return;
+                lightboxImg.src = item.image;
+                lightboxImg.alt = item.alt;
+                lightboxTitle.textContent = item.title;
+                lightboxDesc.textContent = item.description;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                updateNavButtons();
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            function updateNavButtons() {
+                prevBtn.style.display = filteredItems.length > 1 ? 'flex' : 'none';
+                nextBtn.style.display = filteredItems.length > 1 ? 'flex' : 'none';
+            }
+
+            function showPrev() {
+                if (filteredItems.length === 0) return;
+                currentIndex = (currentIndex - 1 + filteredItems.length) % filteredItems.length;
+                const item = filteredItems[currentIndex];
+                lightboxImg.src = item.image;
+                lightboxImg.alt = item.alt;
+                lightboxTitle.textContent = item.title;
+                lightboxDesc.textContent = item.description;
+            }
+
+            function showNext() {
+                if (filteredItems.length === 0) return;
+                currentIndex = (currentIndex + 1) % filteredItems.length;
+                const item = filteredItems[currentIndex];
+                lightboxImg.src = item.image;
+                lightboxImg.alt = item.alt;
+                lightboxTitle.textContent = item.title;
+                lightboxDesc.textContent = item.description;
+            }
+
+            // ---- Lightbox event listeners ----
+            closeBtn.addEventListener('click', closeLightbox);
+            prevBtn.addEventListener('click', showPrev);
+            nextBtn.addEventListener('click', showNext);
+
+            // Close on backdrop click
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === this) closeLightbox();
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (!lightbox.classList.contains('active')) return;
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') showPrev();
+                if (e.key === 'ArrowRight') showNext();
+            });
+
+            // ---- Category tabs ----
+            const tabs = document.querySelectorAll('#filterTabs button');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    const category = this.getAttribute('data-category');
+                    currentCategory = category;
+                    renderGallery(category);
+                });
+            });
+
+            // ---- Initial render ----
+            renderGallery('all');
+
+            // ---- Console info (JavaScript feature) ----
+            console.log(`📸 Harbour Grand Gallery loaded: ${galleryItems.length} images across ${new Set(galleryItems.map(i => i.category)).size} categories.`);
+
+        })();
+    </script>
+</body>
+</html>

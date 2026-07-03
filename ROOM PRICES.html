@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5" />
+    <title>Harbour Grand · Room Prices</title>
+    <!-- SEO Meta -->
+    <meta name="description" content="Compare room prices at Harbour Grand Hotel. Luxury rooms, suites, and special offers. Best rates guaranteed." />
+    <meta name="keywords" content="room prices, luxury hotel rates, harbour grand, suite prices, hotel deals" />
+    <meta name="author" content="Harbour Grand Hotel" />
+    <!-- Google Font & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #faf8f5;
+            color: #1e1e2a;
+            line-height: 1.6;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+
+        /* ===== COLOR THEME ===== */
+        :root {
+            --gold: #c8a165;
+            --gold-light: #e8d5b5;
+            --navy: #0f1a2b;
+            --cream: #f8f2e9;
+            --white: #ffffff;
+            --shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+            --radius: 20px;
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        .section-title {
+            font-size: 2.8rem;
+            margin-bottom: 6px;
+            color: var(--navy);
+            letter-spacing: -0.3px;
+        }
+        .section-sub {
+            color: #5a6a7a;
+            font-size: 1.1rem;
+            margin-bottom: 32px;
+            font-weight: 300;
+        }
+        .gold-accent {
+            color: var(--gold);
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-block;
+            background: var(--gold);
+            color: white;
+            padding: 14px 36px;
+            border-radius: 60px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: 0.25s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+            box-shadow: 0 8px 20px rgba(200, 161, 101, 0.25);
+        }
+        .btn:hover {
+            background: #b58b4a;
+            transform: translateY(-3px);
+            box-shadow: 0 14px 30px rgba(200, 161, 101, 0.35);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            box-shadow: none;
+        }
+        .btn-outline:hover {
+            background: var(--gold);
+            color: white;
+        }
+        .btn-sm {
+            padding: 10px 24px;
+            font-size: 0.85rem;
+        }
+
+        /* ===== HEADER / NAV ===== */
+        .navbar {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+            padding: 18px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(200, 161, 101, 0.15);
+        }
+        .nav-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--navy);
+            letter-spacing: -0.5px;
+        }
+        .logo span {
+            color: var(--gold);
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            align-items: center;
+        }
+        .nav-links a {
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--gold);
+            border-bottom-color: var(--gold);
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--navy);
+        }
+
+        /* ===== HERO / BANNER ===== */
+        .hero {
+            background: linear-gradient(145deg, #0b1624 0%, #1a2e44 100%);
+            color: white;
+            padding: 60px 0 70px;
+            border-radius: 0 0 60px 60px;
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(200, 161, 101, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 740px;
+            margin: 0 auto;
+        }
+        .hero-content h1 {
+            font-size: 3.6rem;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+        .hero-content h1 i {
+            color: var(--gold);
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            opacity: 0.85;
+            font-weight: 300;
+        }
+
+        /* ===== PRICE TABLE ===== */
+        .price-section {
+            margin: 30px 0 50px;
+        }
+        .price-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+            margin-bottom: 28px;
+            background: white;
+            padding: 18px 24px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid #f0ebe3;
+        }
+        .price-controls label {
+            font-weight: 600;
+            margin-right: 8px;
+            font-size: 0.9rem;
+        }
+        .price-controls select,
+        .price-controls input {
+            padding: 10px 16px;
+            border: 1px solid #e0d9d0;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            background: #fcfbf9;
+            font-family: 'Inter', sans-serif;
+            transition: 0.2s;
+        }
+        .price-controls select:focus,
+        .price-controls input:focus {
+            border-color: var(--gold);
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(200, 161, 101, 0.1);
+        }
+        .price-controls .sort-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: auto;
+            flex-wrap: wrap;
+        }
+        .price-controls .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        /* Table */
+        .price-table-wrapper {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid #f0ebe3;
+        }
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+        .price-table thead {
+            background: var(--navy);
+            color: white;
+        }
+        .price-table th {
+            padding: 18px 20px;
+            text-align: left;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.3px;
+        }
+        .price-table td {
+            padding: 16px 20px;
+            border-bottom: 1px solid #f0ebe3;
+            vertical-align: middle;
+        }
+        .price-table tbody tr {
+            transition: 0.2s;
+        }
+        .price-table tbody tr:hover {
+            background: #fcfbf9;
+        }
+        .price-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        .price-table .room-name {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        .price-table .room-name i {
+            color: var(--gold);
+            margin-right: 10px;
+            width: 24px;
+        }
+        .price-table .price-amount {
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: var(--navy);
+        }
+        .price-table .price-amount small {
+            font-weight: 400;
+            font-size: 0.8rem;
+            color: #5a6a7a;
+        }
+        .price-table .facilities-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 16px;
+            font-size: 0.8rem;
+            color: #3d4d5d;
+        }
+        .price-table .facilities-list i {
+            color: var(--gold);
+            margin-right: 4px;
+        }
+        .price-table .badge-offer {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 2px 12px;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+        .price-table .btn-book-now {
+            padding: 8px 20px;
+            font-size: 0.8rem;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--navy);
+            color: #d0d8e0;
+            padding: 48px 0 28px;
+            margin-top: 40px;
+            border-radius: 60px 60px 0 0;
+        }
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        .footer h4 {
+            color: white;
+            margin-bottom: 12px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+        }
+        .footer a {
+            color: #b0c0d0;
+            transition: 0.2s;
+        }
+        .footer a:hover {
+            color: var(--gold);
+        }
+        .footer-bottom {
+            border-top: 1px solid #2f4055;
+            padding-top: 24px;
+            margin-top: 28px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #8a9aa8;
+        }
+        .social-icons i {
+            font-size: 1.5rem;
+            margin-right: 14px;
+            color: #b0c0d0;
+            transition: 0.2s;
+        }
+        .social-icons i:hover {
+            color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 820px) {
+            .menu-toggle {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                gap: 18px;
+                padding: 24px 0 12px;
+                border-top: 1px solid #eee;
+                margin-top: 16px;
+                align-items: flex-start;
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .hero-content h1 {
+                font-size: 2.6rem;
+            }
+            .section-title {
+                font-size: 2.2rem;
+            }
+            .price-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .price-controls .sort-group {
+                margin-left: 0;
+            }
+            .price-table {
+                font-size: 0.85rem;
+            }
+            .price-table th,
+            .price-table td {
+                padding: 12px 14px;
+            }
+            .price-table .facilities-list {
+                font-size: 0.7rem;
+                gap: 4px 10px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 16px;
+            }
+            .hero {
+                padding: 40px 0 44px;
+                border-radius: 0 0 32px 32px;
+            }
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+            }
+            .price-table-wrapper {
+                overflow-x: auto;
+            }
+            .price-table {
+                min-width: 600px;
+            }
+            .footer-grid {
+                flex-direction: column;
+                gap: 24px;
+            }
+            .price-controls .filter-group,
+            .price-controls .sort-group {
+                width: 100%;
+            }
+            .price-controls select,
+            .price-controls input {
+                width: 100%;
+            }
+        }
+
+        /* ===== ANIMATION ===== */
+        .highlight-row {
+            animation: highlightFade 2s ease;
+        }
+        @keyframes highlightFade {
+            0% {
+                background: rgba(200, 161, 101, 0.15);
+            }
+            100% {
+                background: transparent;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== NAVIGATION ===== -->
+    <header class="navbar">
+        <div class="container nav-flex">
+            <div class="logo">Harbour<span>Grand</span></div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-links" id="navLinks">
+                <a href="#" class="active">Prices</a>
+                <a href="#">Rooms</a>
+                <a href="#">Gallery</a>
+                <a href="#">Booking</a>
+                <a href="#">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===== HERO / BANNER ===== -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h1><i class="fas fa-tag"></i> Room <span class="gold-accent">Prices</span></h1>
+                <p>Transparent pricing with the best rates guaranteed. Choose your perfect room and book with confidence.</p>
+            </div>
+        </section>
+
+        <!-- ===== PRICE TABLE ===== -->
+        <section class="container price-section">
+            <h2 class="section-title"><span class="gold-accent">✦</span> Compare & Book</h2>
+            <p class="section-sub">All rates are per night, inclusive of taxes and breakfast. Special offers available for extended stays.</p>
+
+            <!-- Controls -->
+            <div class="price-controls">
+                <div class="filter-group">
+                    <label for="filterRoom"><i class="fas fa-filter"></i> Filter:</label>
+                    <select id="filterRoom">
+                        <option value="all">All Rooms</option>
+                        <option value="harbour">Harbour View</option>
+                        <option value="city">City Skyline</option>
+                        <option value="presidential">Presidential</option>
+                        <option value="wellness">Wellness Suite</option>
+                    </select>
+                </div>
+                <div class="sort-group">
+                    <label for="sortPrice"><i class="fas fa-arrow-up-wide-short"></i> Sort:</label>
+                    <select id="sortPrice">
+                        <option value="default">Default</option>
+                        <option value="low">Price: Low → High</option>
+                        <option value="high">Price: High → Low</option>
+                    </select>
+                    <button id="resetFilters" class="btn btn-sm btn-outline" style="padding:8px 18px; font-size:0.8rem;">
+                        <i class="fas fa-rotate"></i> Reset
+                    </button>
+                </div>
+            </div>
+
+            <!-- Table -->
+            <div class="price-table-wrapper">
+                <table class="price-table" id="priceTable">
+                    <thead>
+                        <tr>
+                            <th>Room Type</th>
+                            <th>Nightly Rate</th>
+                            <th>Facilities</th>
+                            <th>Special Offer</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        <!-- Data injected via JS -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div style="margin-top: 24px; text-align: center; color: #5a6a7a; font-size: 0.9rem;">
+                <i class="fas fa-shield-alt gold-accent"></i> Best price guarantee · Free cancellation up to 48 hours before check-in
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Harbour Grand</h4>
+                    <p style="max-width: 240px; opacity: 0.8;">Where the sea meets sophistication. Est. 1982</p>
+                </div>
+                <div>
+                    <h4>Quick links</h4>
+                    <a href="#">Prices</a> · <a href="#">Rooms</a> · <a href="#">Gallery</a> · <a href="#">Booking</a>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <div class="social-icons">
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-facebook"></i>
+                        <i class="fab fa-x-twitter"></i>
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">© 2026 Harbour Grand Hotel. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        (function() {
+            // ---- Mobile menu toggle ----
+            const toggleBtn = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+            if (toggleBtn && navLinks) {
+                toggleBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    navLinks.classList.toggle('open');
+                });
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => navLinks.classList.remove('open'));
+                });
+            }
+
+            // ---- Room data ----
+            const rooms = [{
+                id: 'harbour',
+                name: 'Harbour View',
+                icon: 'fa-water',
+                price: 290,
+                facilities: ['Free Wi-Fi', '55" Smart TV', 'Minibar', 'Jacuzzi', 'Sea view'],
+                offer: '15% off 3+ nights'
+            }, {
+                id: 'city',
+                name: 'City Skyline',
+                icon: 'fa-city',
+                price: 220,
+                facilities: ['Free Wi-Fi', '55" Smart TV', 'Minibar', 'City view', 'Coffee maker'],
+                offer: '10% off 2+ nights'
+            }, {
+                id: 'presidential',
+                name: 'Presidential Suite',
+                icon: 'fa-crown',
+                price: 890,
+                facilities: ['Free Wi-Fi', '65" Smart TV', 'Butler service', 'Jacuzzi', 'Champagne', 'Terrace'],
+                offer: 'Complimentary spa access'
+            }, {
+                id: 'wellness',
+                name: 'Wellness Suite',
+                icon: 'fa-spa',
+                price: 350,
+                facilities: ['Free Wi-Fi', '55" Smart TV', 'Spa access', 'Healthy menu', 'Sauna', 'Gym pass'],
+                offer: '20% off wellness package'
+            }];
+
+            // ---- Render table ----
+            const tbody = document.getElementById('tableBody');
+
+            function renderTable(filter = 'all', sort = 'default') {
+                let filtered = rooms;
+                if (filter !== 'all') {
+                    filtered = rooms.filter(r => r.id === filter);
+                }
+
+                // Sort
+                if (sort === 'low') {
+                    filtered.sort((a, b) => a.price - b.price);
+                } else if (sort === 'high') {
+                    filtered.sort((a, b) => b.price - a.price);
+                } else {
+                    // default: keep original order
+                    filtered = rooms.filter(r => filter === 'all' || r.id === filter);
+                }
+
+                if (filtered.length === 0) {
+                    tbody.innerHTML =
+                        `<tr><td colspan="5" style="text-align:center; padding:40px; color:#5a6a7a;">No rooms match this filter.</td></tr>`;
+                    return;
+                }
+
+                let html = '';
+                filtered.forEach((room, index) => {
+                    const facilitiesHtml = room.facilities.map(f =>
+                        `<span><i class="fas fa-check-circle"></i> ${f}</span>`
+                    ).join('');
+
+                    html += `
+                        <tr data-id="${room.id}" data-price="${room.price}" class="${index === 0 ? 'highlight-row' : ''}">
+                            <td class="room-name"><i class="fas ${room.icon}"></i> ${room.name}</td>
+                            <td class="price-amount">$${room.price} <small>/ night</small></td>
+                            <td><div class="facilities-list">${facilitiesHtml}</div></td>
+                            <td><span class="badge-offer"><i class="fas fa-gift"></i> ${room.offer}</span></td>
+                            <td><button class="btn btn-sm btn-book" data-room="${room.name}" style="padding:8px 20px; font-size:0.8rem;">Book now</button></td>
+                        </tr>
+                    `;
+                });
+                tbody.innerHTML = html;
+
+                // Attach booking events
+                document.querySelectorAll('.btn-book').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const roomName = this.getAttribute('data-room');
+                        alert(`✨ You are about to book the "${roomName}". Please complete the booking form.`);
+                    });
+                });
+            }
+
+            // ---- Filter & Sort controls ----
+            const filterSelect = document.getElementById('filterRoom');
+            const sortSelect = document.getElementById('sortPrice');
+            const resetBtn = document.getElementById('resetFilters');
+
+            function updateTable() {
+                const filter = filterSelect.value;
+                const sort = sortSelect.value;
+                renderTable(filter, sort);
+            }
+
+            filterSelect.addEventListener('change', updateTable);
+            sortSelect.addEventListener('change', updateTable);
+
+            resetBtn.addEventListener('click', function() {
+                filterSelect.value = 'all';
+                sortSelect.value = 'default';
+                updateTable();
+                // highlight first row after reset
+                setTimeout(() => {
+                    const firstRow = tbody.querySelector('tr');
+                    if (firstRow) {
+                        firstRow.classList.add('highlight-row');
+                        setTimeout(() => firstRow.classList.remove('highlight-row'), 2000);
+                    }
+                }, 100);
+            });
+
+            // ---- Initial render ----
+            renderTable('all', 'default');
+
+            // ---- Bonus: price sorting highlight with animation ----
+            // already handled via class on first row
+
+        })();
+    </script>
+</body>
+</html>
